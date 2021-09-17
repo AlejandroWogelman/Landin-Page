@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@200&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Loopstudios landing page</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        color: ghostwhite;
+        font-size: 11px;
+        text-align: center;
+        background-color: rgb(46, 44, 44);
+        padding: 0.7rem;
+      }
+      .attribution a {
+        color: hsl(182, 57%, 51%);
+      }
+    </style>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="bg-header">
+        <div class="title-links">
+          <h1>loopstudios</h1>
+          <ul class="list" id="list">
+            <li>About</li>
+            <li>Careers</li>
+            <li>Events</li>
+            <li>Products</li>
+            <li>Support</li>
+          </ul>
+          <div class="hamburger ToggleNav" id="hamburger">
+            <img src="./images/icon-hamburger.svg" alt="icon-hamburger" />
+          </div>
+          <div class="close" id="close">
+            <img src="./images/icon-close.svg" alt="icon-close" />
+          </div>
+        </div>
+        <div class="text-header">
+          <h2>
+            Immersive <br />
+            experiences <br />
+            that deliver
+          </h2>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section>
+        <div class="section-1">
+          <div class="interactive-img">
+            <img
+              src="./images/desktop/image-interactive.jpg"
+              alt="image-interactive"
+              width="100%"
+            />
+          </div>
+          <div class="interactive-description">
+            <div>
+              <h2>THE LEADER IN INTERACTIVE VR</h2>
+              <p>
+                Founded in 2011, Loopstudios has been producing world-class
+                virtual reality projects for some of the best companies around
+                the globe. Our award-winning creations have transformed
+                businesses through digital experiences that bind to their brand.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="cards">
+        <div class="Cards-header">
+          <h2>OUR CREATIONS</h2>
+          <div class="all-cards-header">SEE ALL</div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-box1">
+        <h3>loopstudios</h3>
+        <ul class="list-footer">
+          <li>About</li>
+          <li>Careers</li>
+          <li>Events</li>
+          <li>Products</li>
+          <li>Support</li>
+        </ul>
+      </div>
+      <div class="footer-box2">
+        <ul>
+          <li><img src="./images/icon-facebook.svg" alt="icon-facebook" /></li>
+          <li><img src="./images/icon-twitter.svg" alt="icon-twitter" /></li>
+          <li>
+            <img src="./images/icon-pinterest.svg" alt="icon-pinterest" />
+          </li>
+          <li>
+            <img src="./images/icon-instagram.svg" alt="icon-instagram" />
+          </li>
+        </ul>
+        <h5>© 2021 Loopstudios. All rights reserved.</h5>
+      </div>
+    </footer>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a
+        href="https://www.linkedin.com/in/alejandrowogel/"
+        referrerpolicy="no-referrer"
+        target="_blank"
+        >Alejandro /Linkedin</a
+      >
+      -
+      <a
+        href="https://github.com/AlejandroWogelman"
+        referrerpolicy="no-referrer"
+        target="_blank"
+      >
+        Github</a
+      >.
+    </div>
+
+    <script>
+      const imgsCards = (sizes) => {
+        return [
+          {
+            image: `<img src="./images/${sizes}/image-deep-earth.jpg" alt="earth" />`,
+            name: "DEEP EARTH",
+          },
+          {
+            image: ` <img src="./images/${sizes}/image-night-arcade.jpg" alt="arcade" />`,
+            name: "NIGHT ARCADE",
+          },
+          {
+            image: `<img src="./images/${sizes}/image-soccer-team.jpg" alt="soccer" />`,
+            name: "SOCCER TEAM",
+          },
+          {
+            image: `<img src="./images/${sizes}/image-grid.jpg" alt="the-grid" />`,
+            name: "THE GRID",
+          },
+          {
+            image: `<img src="./images/${sizes}/image-from-above.jpg" alt="above" />`,
+            name: "FROM UP ABOVE VR",
+          },
+          {
+            image: `<img src="./images/${sizes}/image-pocket-borealis.jpg" alt="boreals" />`,
+            name: "POCKET BOREALS",
+          },
+          {
+            image: `<img src="./images/${sizes}/image-curiosity.jpg" alt="the-coriosity"/>`,
+            name: "THE CURIOSITY",
+          },
+          {
+            image: `<img src="./images/${sizes}/image-fisheye.jpg" alt=" make-it-fisheye" />`,
+            name: " MAKE IT FISHEYE",
+          },
+        ];
+      };
+      const cardsSIZE = imgsCards(
+        window.screen.width > 800 ? "desktop" : "mobile"
+      );
+
+      const cards = document.getElementById("cards");
+
+      const createCard = (image, name) => {
+        cards.insertAdjacentHTML(
+          "beforeend",
+          `<article class="img-article"> ${image}
+            <h4> ${name} </h4> </article>`
+        );
+      };
+
+      cardsSIZE.forEach(({ image, name }) => createCard(image, name));
+
+      const hamburger = document.getElementById("hamburger");
+      const closeBurger = document.getElementById("close");
+      const list = document.getElementById("list");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.remove("ToggleNav");
+        closeBurger.classList.add("ToggleNav");
+        list.style.display = "flex";
+      });
+      closeBurger.addEventListener("click", () => {
+        closeBurger.classList.remove("ToggleNav");
+        hamburger.classList.add("ToggleNav");
+        list.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
